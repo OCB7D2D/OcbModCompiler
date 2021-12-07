@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <WorkingDirectory>$(MSBuildThisFileDirectory)bin\$(Configuration)\$(TargetFramework)</WorkingDirectory>
+        <PublishTrimmed>true</PublishTrimmed>
+        <PublishReadyToRun>true</PublishReadyToRun>
+        <PublishSingleFile>false</PublishSingleFile>
+        <PackAsTool>true</PackAsTool>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Mono.Cecil">
+        <HintPath>$(PATH_7D2D_MANAGED)\Mono.Cecil.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
