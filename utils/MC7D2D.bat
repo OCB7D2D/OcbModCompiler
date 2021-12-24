@@ -23,9 +23,13 @@ if "%PATH_7D2D_MANAGED%"== "" (
 /reference:"%PATH_7D2D_MANAGED%\InControl.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.CoreModule.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\UnityEngine.InputModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.AudioModule.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\UnityEngine.PhysicsModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.AnimationModule.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\UnityEngine.InputLegacyModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Unity.Postprocessing.Runtime.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\InControl.dll" ^
 /reference:Microsoft.CSharp.dll ^
 /subsystemversion:6.00 /utf8output /deterministic+ /langversion:7.3
 
