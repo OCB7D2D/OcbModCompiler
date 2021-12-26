@@ -97,7 +97,6 @@ roslyn csharp compiler (csc.exe) is located (default path might just work fine).
 
 #### Real-World A20 Example Modules
 
-- https://github.com/OCB7D2D/ElectricityWireColors
 - https://github.com/OCB7D2D/ElectricityOverhaul
 
 [1]: https://github.com/BepInEx/BepInEx
