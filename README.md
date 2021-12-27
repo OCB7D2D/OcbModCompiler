@@ -22,11 +22,23 @@ We use [BepInEx][1] to patch the main game assembly `Assembly-CSharp.dll`
 before it is actually loaded by the Unity Game Engine. In order to do this,
 BepInEx uses [Unity Doorstop][2]. It uses a trick as at least one Unity
 dependency or library tries to load `winhttp.dll`. This file is normally
-not there (which is sliently ignored), but once we put one in place, it
+not there (which is silently ignored), but once we put one in place, it
 is loaded and initialized before the actual game dlls are loaded. At this
 stage BepInEx will apply all preloader patchers from the Mods directory.
 This happens all in memory, before Unity actually loads the game dll.
 Unity then loads the in-memory changed versions of the game dll.
+
+#### Execution order
+
+- On windows we hook via winhttp.dll
+- On Linux we need define a few LD settings
+- The Game starts and loads the hooked library
+- This `doorstep` now loads the `BepInEx` preloader
+- The preloader is configured to load `MultiFolderLoader` patcher
+- The `MultiFolderLoader` scan all directories under `baseDir`
+  See `doorstop_config.ini` for `[MultiFolderLoader]` section
+- For each found dll the patch methods are called and applied
+- Game starts with all applied in-memory dll patches
 
 ### Additional Tools for Developers/Modders
 
@@ -82,7 +94,7 @@ must be placed in the `patchers` folder in order for BepInEx to find them.
 
 In order for the utilities to be available and globally callable, you need to
 add the `utils` path to your global `path` environment variable (please see
-google if you dont know how). Additionally we need one or two more environment
+Google if you don't know how). Additionally we need one or two more environment
 variables to be set (please adjust them accordingly):
 
 ```batch
