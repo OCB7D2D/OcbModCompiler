@@ -10,9 +10,11 @@ if "%PATH_7D2D_MANAGED%"== "" (
 	exit /b 2
 )
 
+REM /debug:pdbonly|portable (will result in non-deterministic build)
+
 "%ROSLYN_PATH%\csc.exe" /out:%* /target:library /nologo ^
 /noconfig /nowarn:1701,1702,2008 /fullpaths /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE ^
-/debug:pdbonly /filealign:512 /optimize+ /errorendlocation /preferreduilang:en-US /highentropyva+ ^
+/filealign:512 /optimize+ /errorendlocation /preferreduilang:en-US /highentropyva+ ^
 /reference:"%PATH_7D2D_MANAGED%\0Harmony.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\mscorlib.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\System.Core.dll" ^
@@ -28,6 +30,7 @@ if "%PATH_7D2D_MANAGED%"== "" (
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.PhysicsModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.AnimationModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.InputLegacyModule.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\UnityEngine.IMGUIModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Unity.Postprocessing.Runtime.dll" ^
 /reference:Microsoft.CSharp.dll ^
 /subsystemversion:6.00 /utf8output /deterministic+ /langversion:7.3
