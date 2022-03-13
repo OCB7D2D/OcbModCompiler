@@ -8,8 +8,24 @@ namespace MOD7D2D
     class AP7D2D
     {
 
+        private static string ManagedPath;
+
+        private static Assembly Resolver(object sender, ResolveEventArgs args)
+        {
+            var parts = args.Name.Split(",");
+            var fqdn = ManagedPath + "\\" + parts[0] + ".dll";
+            Console.WriteLine("Resolving: " + fqdn);
+            var assemby = Assembly.LoadFile(fqdn);
+            Console.WriteLine("  resolved: " + assemby);
+            return assemby;
+        }
+
         static int Main(string[] args)
         {
+
+            AppDomain domain = AppDomain.CurrentDomain;
+
+            domain.AssemblyResolve += new ResolveEventHandler(Resolver);
 
             if (args.Length < 1)
             {
@@ -17,7 +33,7 @@ namespace MOD7D2D
                 return 2;
             }
 
-            string managedPath = Path.GetFullPath(args[0]);
+            ManagedPath = Path.GetFullPath(args[0]);
 
             if (args.Length < 2)
             {
@@ -28,11 +44,12 @@ namespace MOD7D2D
             string outputPath = Path.GetFullPath(args[1]);
 
             var resolver = new DefaultAssemblyResolver();
-            resolver.AddSearchDirectory(managedPath);
-            string assemblyPath = managedPath + @"\Assembly-CSharp.dll";
+            resolver.AddSearchDirectory(ManagedPath);
+            string assemblyPath = ManagedPath + @"\Assembly-CSharp.dll";
             Console.WriteLine("Reading " + assemblyPath);
             AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(
                 assemblyPath, new ReaderParameters { AssemblyResolver = resolver });
+            Console.WriteLine("  read " + assembly);
 
             for (int i = 2; i < args.Length; i++)
             {
@@ -59,9 +76,11 @@ namespace MOD7D2D
                 }
             }
 
+            Console.WriteLine("Writing " + outputPath);
+
             assembly.Write(outputPath);
 
-            Console.WriteLine("Writing " + outputPath);
+            Console.WriteLine("  written " + assembly);
 
             return 0;
         }
