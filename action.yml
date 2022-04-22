@@ -24,7 +24,7 @@ runs:
   steps:
   - name: Packaging release
     shell: cmd
-    run: |
+    run:
       01-CreateRelease.bat ${{ inputs.version }}
       xcopy build\*.zip .
       dir
