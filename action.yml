@@ -71,5 +71,5 @@ runs:
       prerelease: false
       draft: true
       files: |
-        build\*.zip
+        build\${{ inputs.name }}-${{ inputs.version }}.zip
     id: "automatic_releases"
