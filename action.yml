@@ -30,20 +30,12 @@ runs:
       path: 'OCB7D2DCM'
       repository: OCB7D2D/A20BepInExPreloader
       ref: develop
-  - name: Packaging release
-    shell: cmd
-    run: |
-      dir
   - name: Checkout 7D2D A20 dependencies (private repo)
     uses: actions/checkout@v3
     with:
       repository: OCB7D2D/OCB7D2DCI
       token: ${{ inputs.OCBTOKEN }}
       path: 7D2DCI
-  - name: Packaging release
-    shell: cmd
-    run: |
-      dir
   - name: Call OCB7D2D module compiler
     shell: cmd
     run: |
@@ -54,15 +46,8 @@ runs:
   - name: Packaging release
     shell: cmd
     run: |
-      dir
-  - name: Packaging release
-    shell: cmd
-    run: |
       01-CreateRelease.bat ${{ inputs.version }}
-  - name: Packaging release
-    shell: cmd
-    run: |
-      dir build
+      xcopy build\*.zip .
   - name: Create release on tag
     if: inputs.release
     uses: "marvinpinto/action-automatic-releases@v1.2.1"
@@ -71,5 +56,5 @@ runs:
       prerelease: false
       draft: true
       files: |
-        build\${{ inputs.name }}-${{ inputs.version }}.zip
+        *.zip
     id: "automatic_releases"
