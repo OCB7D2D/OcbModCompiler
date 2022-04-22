@@ -29,7 +29,7 @@ runs:
       xcopy build\*.zip .
       dir
   - name: Create release on tag 32
-    if: ${{ inputs.release }}
+    if: ${{ inputs.release == true }}
     uses: "marvinpinto/action-automatic-releases@v1.2.1"
     with:
       repo_token: ${{ inputs.token }}
