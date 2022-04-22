@@ -34,7 +34,7 @@ runs:
     uses: actions/checkout@v3
     with:
       repository: OCB7D2D/OCB7D2DCI
-      token: ${{ inputs.OCBTOKEN }}
+      token: inputs.OCBTOKEN
       path: 7D2DCI
   - name: Call OCB7D2D module compiler
     shell: cmd
