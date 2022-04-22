@@ -42,5 +42,5 @@ runs:
       prerelease: false
       draft: true
       files: |
-        build/*.zip
+        ./*.zip
     id: "automatic_releases"
