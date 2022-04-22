@@ -43,6 +43,7 @@ runs:
       set PATH_7D2D_MANAGED=7D2DCI/A20.3
       set PATH=%PATH%;OCB7D2DCM/utils
       00-CompileModule.bat
+      echo Compiled Module ${{ github.event_name }} vs ${{ github.event.ref_type }}
   - name: Packaging release
     shell: cmd
     run: |
