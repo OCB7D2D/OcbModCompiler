@@ -28,6 +28,10 @@ runs:
       01-CreateRelease.bat ${{ inputs.version }}
       xcopy build\*.zip .
       dir
+  - name: Echo
+    shell: cmd
+    run: |
+      dir
   - name: Create release on tag 32
     if: ${{ inputs.release == 'true' }}
     uses: "marvinpinto/action-automatic-releases@v1.2.1"
