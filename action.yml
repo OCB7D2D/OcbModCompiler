@@ -22,13 +22,15 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: Packaging release
+  - name: Create release archive
     shell: cmd
     run:
       01-CreateRelease.bat ${{ inputs.version }}
+  - name: Copy release archive
+    shell: cmd
+    run: |
       xcopy build\*.zip .
-      dir
-  - name: Echo
+  - name: Show directory content
     shell: cmd
     run: |
       dir
