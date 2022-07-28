@@ -35,6 +35,8 @@ REM /debug:pdbonly|portable (will result in non-deterministic build)
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.UnityWebRequestAudioModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.AssetBundleModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.ImageConversionModule.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\UnityEngine.ParticleSystemModule.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\UnityEngine.TerrainModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.IMGUIModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Unity.Postprocessing.Runtime.dll" ^
 /reference:Microsoft.CSharp.dll ^
