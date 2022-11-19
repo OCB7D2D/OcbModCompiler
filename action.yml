@@ -32,6 +32,9 @@ runs:
   steps:
   - name: Add msbuild to PATH
     uses: microsoft/setup-msbuild@v1.1
+  - name: Update PowerShell Archive Version
+    shell: powershell
+    run: Install-Module Microsoft.PowerShell.Archive -MinimumVersion 1.2.3.0 -Repository PSGallery -Force
   - name: Checkout OCB7D2D compile helpers
     uses: actions/checkout@v3
     with:
