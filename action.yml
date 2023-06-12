@@ -18,6 +18,10 @@ inputs:
     required: false
     default: 'snapshot'
     type: string
+  v7d2d:
+    required: false
+    default: 'A21.0'
+    type: string
   prerelease:
     required: false
     default: 'false'
@@ -39,7 +43,7 @@ runs:
     uses: actions/checkout@v3
     with:
       path: 'OCB7D2DCM'
-      repository: OCB7D2D/A20BepInExPreloader
+      repository: OCB7D2D/OcbModCompiler
       ref: master
   - name: Checkout 7D2D A20 dependencies (private repo)
     uses: actions/checkout@v3
@@ -51,7 +55,7 @@ runs:
     shell: cmd
     run: |
       set ROSLYN_PATH=C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\Roslyn
-      set PATH_7D2D_MANAGED=7D2DCI/A20.6
+      set PATH_7D2D_MANAGED=7D2DCI/${{ inputs.v7d2d }}
       set PATH=%PATH%;OCB7D2DCM/utils
       00-CompileModule.bat
   - name: Create release archive
