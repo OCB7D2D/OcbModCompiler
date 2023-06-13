@@ -20,6 +20,7 @@ REM /debug:pdbonly|portable (will result in non-deterministic build)
 /reference:"%PATH_7D2D_MANAGED%\System.Core.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\System.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\System.Xml.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\System.Xml.Linq.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Mono.Cecil.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Assembly-CSharp-firstpass.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\LogLibrary.dll" ^
