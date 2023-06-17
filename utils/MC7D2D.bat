@@ -42,6 +42,7 @@ REM /debug:pdbonly|portable (will result in non-deterministic build)
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.ImageConversionModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.ParticleSystemModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.TerrainModule.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\UnityEngine.WindModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.IMGUIModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\AstarPathfindingProject.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Unity.Postprocessing.Runtime.dll" ^
