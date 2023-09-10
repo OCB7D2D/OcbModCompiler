@@ -20,7 +20,7 @@ inputs:
     type: string
   v7d2d:
     required: false
-    default: 'A21.0'
+    default: 'A21.2'
     type: string
   prerelease:
     required: false
