@@ -11,8 +11,9 @@ if not "%ROSLYN_PATH%" == "" goto HasManaged
 :HasManaged
 
 REM /debug:pdbonly|portable (will result in non-deterministic build)
+REM "%ROSLYN_PATH%\csc.exe" /langversion:?
 
-"%ROSLYN_PATH%\csc.exe" /out:%* /target:library /nologo ^
+"%ROSLYN_PATH%\csc.exe" /out:%* /target:library /nologo /langversion:latest ^
 /noconfig /nowarn:1701,1702,2008 /fullpaths /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE ^
 /filealign:512 /optimize+ /errorendlocation /preferreduilang:en-US /highentropyva+ ^
 /reference:"%PATH_7D2D_MANAGED%\0Harmony.dll" ^
@@ -47,6 +48,6 @@ REM /debug:pdbonly|portable (will result in non-deterministic build)
 /reference:"%PATH_7D2D_MANAGED%\AstarPathfindingProject.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Unity.Postprocessing.Runtime.dll" ^
 /reference:Microsoft.CSharp.dll ^
-/subsystemversion:6.00 /utf8output /deterministic+ /langversion:7.3
+/subsystemversion:6.00 /utf8output /deterministic+ /langversion:9.0
 
 :end
