@@ -47,6 +47,8 @@ REM "%ROSLYN_PATH%\csc.exe" /langversion:?
 /reference:"%PATH_7D2D_MANAGED%\UnityEngine.IMGUIModule.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\AstarPathfindingProject.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Unity.Postprocessing.Runtime.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\Unity.ResourceManager.dll" ^
+/reference:"%PATH_7D2D_MANAGED%\Unity.Addressables.dll" ^
 /reference:Microsoft.CSharp.dll ^
 /subsystemversion:6.00 /utf8output /deterministic+ /langversion:9.0
 
