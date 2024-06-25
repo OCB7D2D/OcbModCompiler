@@ -1,13 +1,37 @@
 @echo off
 
-if not "%ROSLYN_PATH%" == "" goto HasRoslyn
-	echo Error: ROSLYN_PATH env variable is not defined
-	exit /b 2
-:hasRoslyn
+set ROSLYN_PATH_ORG=%ROSLYN_PATH%
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+echo %ROSLYN_PATH%
+set ROSLYN_PATH=%ROSLYN_PATH_ORG%
+set ROSLYN_PATH_ORG=
+echo Error: Roslyn compiler (csc.exe) not found
+echo Error: Define ROSLYN_PATH env var to point to it
+exit /b 2
 
-if not "%ROSLYN_PATH%" == "" goto HasManaged
-	echo Error: PATH_7D2D_MANAGED env variable is not defined
-	exit /b 2
+:HasRoslyn
+
+if exist "%PATH_7D2D_MANAGED%" goto HasManaged
+echo Error: 7D2D Managed dll directory not found
+echo Error: Define PATH_7D2D_MANAGED to point to it
+exit /b 2
+
 :HasManaged
 
 REM /debug:pdbonly|portable (will result in non-deterministic build)
@@ -16,6 +40,7 @@ REM "%ROSLYN_PATH%\csc.exe" /langversion:?
 "%ROSLYN_PATH%\csc.exe" /out:%* /target:library /nologo /langversion:latest ^
 /noconfig /nowarn:1701,1702,2008 /fullpaths /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE ^
 /filealign:512 /optimize+ /errorendlocation /preferreduilang:en-US /highentropyva+ ^
+/reference:"%PATH_7D2D_MANAGED%\netstandard.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\0Harmony.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\mscorlib.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\System.Core.dll" ^
@@ -50,6 +75,6 @@ REM "%ROSLYN_PATH%\csc.exe" /langversion:?
 /reference:"%PATH_7D2D_MANAGED%\Unity.ResourceManager.dll" ^
 /reference:"%PATH_7D2D_MANAGED%\Unity.Addressables.dll" ^
 /reference:Microsoft.CSharp.dll ^
-/subsystemversion:6.00 /utf8output /deterministic+ /langversion:9.0
+/subsystemversion:6.00 /utf8output /deterministic+ /langversion:10.0
 
 :end
