@@ -107,7 +107,7 @@ will try to load the original `Assembly-CSharp.dll` from that location. Also oth
 referenced from there during compilation. The `ROSLYN_PATH` is optional and points to where your
 roslyn csharp compiler (csc.exe) is located (default path might just work fine).
 
-#### Real-World A20 Example Modules
+#### Real-World Example Modules
 
 - https://github.com/OCB7D2D/ElectricityOverhaul
 
