@@ -20,7 +20,7 @@ inputs:
     type: string
   v7d2d:
     required: false
-    default: 'A21.2'
+    default: 'V3.2'
     type: string
   prerelease:
     required: false
@@ -45,7 +45,7 @@ runs:
       path: 'OCB7D2DCM'
       repository: OCB7D2D/OcbModCompiler
       ref: master
-  - name: Checkout 7D2D A20 dependencies (private repo)
+  - name: Checkout 7D2D dependencies (private repo)
     uses: actions/checkout@v4
     with:
       repository: OCB7D2D/OCB7D2DCI
