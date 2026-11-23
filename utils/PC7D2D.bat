@@ -10,6 +10,14 @@ set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\2022\Community\MSBuild\Cu
 if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
 set ROSLYN_PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Roslyn
 if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\18\Enterprise\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\18\Enterprise\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
+set ROSLYN_PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Roslyn
+if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
 set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Roslyn
 if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
 set ROSLYN_PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Roslyn

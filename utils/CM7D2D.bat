@@ -4,6 +4,17 @@ echo ***************************************
 echo 7D2D Module Compiler v0.1.0
 echo ***************************************
 
+dir C:\Program Files\Microsoft Visual Studio\18\Enterprise
+echo ***************************************
+dir C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild
+echo ***************************************
+dir C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Current
+echo ***************************************
+dir C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Current\Bin
+echo ***************************************
+dir C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Current\Bin\Roslyn
+echo ***************************************
+
 set ROSLYN_PATH_ORG=%ROSLYN_PATH%
 if exist "%ROSLYN_PATH%\csc.exe" goto HasRoslyn
 set ROSLYN_PATH=%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\Roslyn
